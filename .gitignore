@@ -1,0 +1,4 @@
+# Ignorar dependências e arquivos desnecessários
+node_modules/
+.env
+
