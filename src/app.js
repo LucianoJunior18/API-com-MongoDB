@@ -2,6 +2,8 @@ import express from "express";
 import conectaNaDatabase from "./config/dbConnect.js";
 import routes from "./routes/index.js"
 
+import manipuladorDeErros from "./middlewares/manipularodDeErros.js";
+
 const conexao = await conectaNaDatabase();
 
 conexao.on("error", (erro) => {
@@ -15,16 +17,10 @@ conexao.once("open", () => {
 const app = express();
 routes(app);
 
+app.use(manipuladorDeErros);
 
 
 
-
-//  Deleta
-app.delete("/livros/:id", (req, res) => {
-    const index = buscarLivros(req.params.id);
-    livros.splice(index, 1);
-    res.status(200).send("Livros removido com sucesso");
-});
 
 export default app
 
