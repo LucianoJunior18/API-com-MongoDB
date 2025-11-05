@@ -1,5 +1,5 @@
-import { autor } from "../models/Author.js";
-import livro from "../models/Livro.js";
+import { autor } from "../models/index.js";
+
 
 class AutorController {
 
